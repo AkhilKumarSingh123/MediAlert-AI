@@ -67,10 +67,10 @@ const MedicalStore = () => {
         Find Nearby Medical Stores
       </button>
 
-      {/* Embed the Google Map */}
-      <LoadScript googleMapsApiKey="AIzaSyAjHvNQwrIUU6GHHBHuPCMK4WSV1Nnb4O8">
+      {/* Embed the Google Map  */}
+      <LoadScript googleMapsApiKey="Google Map API">             
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
-          {/* Render markers for each store */}
+        /* Render markers for each store */
           {stores.map((store, idx) => (
             <Marker
               key={idx}
@@ -82,7 +82,19 @@ const MedicalStore = () => {
             />
           ))}
         </GoogleMap>
-      </LoadScript>
+     </LoadScript>
+
+
+        {/* <div className="mb-10" data-aos="fade-up" data-aos-delay="200">
+        <iframe
+          style={{ border: "0", width: "100%", height: "370px" }}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14332.956037028864!2d82.06318451292609!3d26.26477316800179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399049fc057b5e9b%3A0x3ad9ff021004c84a!2sSultanpur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1712645842905!5m2!1sen!2sin"
+          frameBorder="0"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div> */}
     </div>
   );
 };
