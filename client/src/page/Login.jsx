@@ -7,6 +7,11 @@ import axios from "axios";
 import { Context } from "../main";
 import { Shield, User, Stethoscope } from "lucide-react";
 
+import img1 from "../assets/img/AppointmentPhoto.jpg";
+import img2 from "../assets/img/DoctorsPhoto.jpg";
+import img3 from "../assets/img/NursePhoto.jpg";
+import img4 from "../assets/img/HeartPulsePhoto.jpg";
+
 import GoogleLoginButton from "../components/GoogleLoginButton";
 
 const Login = () => {
@@ -67,12 +72,14 @@ const Login = () => {
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    "../src/assets/img/AppointmentPhoto.jpg",
-    "../src/assets/img/DoctorsPhoto.jpg",
-    "../src/assets/img/NursePhoto.jpg",
-    "../src/assets/img/HeartPulsePhoto.jpg",
-  ];
+  // const images = [
+  //   "../src/assets/img/AppointmentPhoto.jpg",
+  //   "../src/assets/img/DoctorsPhoto.jpg",
+  //   "../src/assets/img/NursePhoto.jpg",
+  //   "../src/assets/img/HeartPulsePhoto.jpg",
+  // ];
+  const images = [img1, img2, img3, img4];
+
 
   useEffect(() => {
     const interval = setInterval(() => {

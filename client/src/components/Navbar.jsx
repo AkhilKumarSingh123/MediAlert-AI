@@ -9,10 +9,10 @@ const Navbar = () => {
   const { isAuth, setIsAuth } = useContext(Context);
   const { user, setUser } = useContext(Context);
   const userData = JSON.parse(localStorage.getItem("user"));
-  console.log(userData, "user data");
+  // console.log(userData, "user data");
   const navigate = useNavigate();
 
-  console.log(user, "user in navbar");
+  // console.log(user, "user in navbar");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {

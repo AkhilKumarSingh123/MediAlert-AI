@@ -3,44 +3,6 @@
 import React, { useState } from "react";
 import "react-multi-carousel/lib/styles.css";
 
-// const departments = [
-//   {
-//     id: 'cardiology',
-//     title: 'Cardiology',
-//     image: './src/assets/img/departments-1.jpg',
-//     italic: 'Cardiology focuses on early detection, monitoring, and prevention for better outcomes.',
-//     desc: 'Deals with heart and blood vessel diseases like heart attacks, high BP, arrhythmias, etc.',
-//   },
-//   {
-//     id: 'neurology',
-//     title: 'Neurology',
-//     image: './src/assets/img/departments-2.jpg',
-//     italic: 'Modern neurology uses smart monitoring for improved care.',
-//     desc: 'Deals with disorders of the brain, spinal cord, and nerves including speech, memory, movement.',
-//   },
-//   {
-//     id: 'hepatology',
-//     title: 'Hepatology',
-//     image: './src/assets/img/departments-3.jpg',
-//     italic: 'Smart monitoring and early alerts for liver health.',
-//     desc: 'Focuses on liver, gallbladder, bile duct, and pancreas diseases like hepatitis, cirrhosis.',
-//   },
-//   {
-//     id: 'pediatrics',
-//     title: 'Pediatrics',
-//     image: './src/assets/img/departments-4.jpg',
-//     italic: 'Smart pediatric health monitoring and emergency alerts.',
-//     desc: 'Real-time monitoring and alerts for child safety and wellness.',
-//   },
-//   {
-//     id: 'ophthalmology',
-//     title: 'Ophthalmologists',
-//     image: './src/assets/img/departments-5.jpg',
-//     italic: 'Smart vision care and real-time eye monitoring.',
-//     desc: 'Smart, fast, and reliable emergency assistance for eye health.',
-//   },
-// ];
-
     
 import img1 from "../assets/img/departments-1.jpg"
 import img2 from "../assets/img/departments-2.jpg"

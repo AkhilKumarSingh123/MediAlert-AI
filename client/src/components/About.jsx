@@ -1,6 +1,8 @@
 
 import React from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import img1 from "../assets/img/Logo.jpg";
+
 
 const About = () => {
   return (
@@ -21,7 +23,8 @@ const About = () => {
             {/* Image Box */}
             <div className="lg:w-1/2 px-4" data-aos="fade-up" data-aos-delay="100">
               <img
-                src="./src/assets/img/Logo.jpg"                     
+                // src="./src/assets/img/Logo.jpg"  
+                src = {img1}                   
                 alt="About Medical Alert"
                 className="w-full h-auto object-contain rounded shadow-lg"
               />

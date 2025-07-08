@@ -6,6 +6,13 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserPlus } from "react-icons/fa";
 
+
+import img1 from "../assets/img/AppointmentPhoto.jpg";
+import img2 from "../assets/img/DoctorsPhoto.jpg";
+import img3 from "../assets/img/NursePhoto.jpg";
+import img4 from "../assets/img/HeartPulsePhoto.jpg";
+
+
 const CreateAccount = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -66,12 +73,14 @@ const CreateAccount = () => {
   };
 
   const [currentImage, setCurrentImage] = useState(0);
-    const images = [
-      "../src/assets/img/AppointmentPhoto.jpg",
-      "../src/assets/img/DoctorsPhoto.jpg",
-      "../src/assets/img/NursePhoto.jpg",
-      "../src/assets/img/HeartPulsePhoto.jpg",
-    ];
+    // const images = [
+    //   "../src/assets/img/AppointmentPhoto.jpg",
+    //   "../src/assets/img/DoctorsPhoto.jpg",
+    //   "../src/assets/img/NursePhoto.jpg",
+    //   "../src/assets/img/HeartPulsePhoto.jpg",
+    // ];
+    const images = [img1, img2, img3, img4];
+
   
     useEffect(() => {
       const interval = setInterval(() => {
