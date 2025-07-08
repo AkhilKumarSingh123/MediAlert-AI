@@ -52,18 +52,41 @@ const url = process.env.MONGO_URL;
 
 
 // all middleware is here
+// app.use(
+//   cors({
+//     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+//     methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+//     credentials: true,
+//   })
+// );
+// app.options("*", cors({
+//   origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+//   credentials: true,
+// }));
+// console.log("Allowed Origins:", process.env.FRONTEND_URL, process.env.DASHBOARD_URL);
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
-    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+    origin: [
+      "https://medialert-ai-frontend.onrender.com",
+      "https://medialert-dashboard.onrender.com"
+    ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   })
 );
+
+// Allow preflight (OPTIONS) requests
 app.options("*", cors({
-  origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+  origin: [
+    "https://medialert-ai-frontend.onrender.com",
+    "https://medialert-dashboard.onrender.com"
+  ],
   credentials: true,
 }));
-console.log("Allowed Origins:", process.env.FRONTEND_URL, process.env.DASHBOARD_URL);
+
+
+
+
 
 
 app.use(express.json());
