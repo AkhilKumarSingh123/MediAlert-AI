@@ -15,7 +15,7 @@ const Doctor = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3030/api/v1/user/get-all-doctor",
+          "https://medialert-ai-3.onrender.com/api/v1/user/get-all-doctor",
           { withCredentials: true }
         );
         setDoctors(data.doctor);

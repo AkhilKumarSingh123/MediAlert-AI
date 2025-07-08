@@ -66,7 +66,7 @@ const MedicalStore = () => {
       </button>
 
       {/* Embed the Google Map  */}
-      <LoadScript googleMapsApiKey="AIzaSyAjHvNQwrIUU6GHHBHuPCMK4WSV1Nnb4O8">       
+      <LoadScript googleMapsApiKey="Google API Key">       ////////////////////////////////////////////////////
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
         /* Render markers for each store */
           {stores.map((store, idx) => (

@@ -18,7 +18,7 @@ const MediChatbot = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3030/api/v1/chatbot/book-appointment",
+        "https://medialert-ai-3.onrender.com/api/v1/chatbot/book-appointment",
         {
           method: "POST",
           headers: {

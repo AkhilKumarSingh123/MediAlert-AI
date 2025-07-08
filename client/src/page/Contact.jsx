@@ -15,7 +15,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3030/api/v1/message/create-message",
+        "https://medialert-ai-3.onrender.com/api/v1/message/create-message",
         { firstName, lastName, email, phone, message },
         {
           withCredentials: true,

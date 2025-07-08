@@ -31,7 +31,7 @@ const Navbar = () => {
 
       if (endpoint) {
         const res = await axios.get(
-          `http://localhost:3030/api/v1/user/${endpoint}`,
+          `https://medialert-ai-3.onrender.com/api/v1/user/${endpoint}`,
           { withCredentials: true }
         );
         toast.success(res.data.message);

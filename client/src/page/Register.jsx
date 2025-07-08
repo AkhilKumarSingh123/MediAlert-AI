@@ -34,7 +34,7 @@ const CreateAccount = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:3030/api/v1/user/create-patient",
+        "https://medialert-ai-3.onrender.com/api/v1/user/create-patient",
         {
           firstName, lastName, email, phone, nic, dob, gender, password,
           role: "Patient"

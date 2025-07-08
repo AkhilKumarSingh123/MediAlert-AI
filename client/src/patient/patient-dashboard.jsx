@@ -49,7 +49,7 @@ const PatientDashboard = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3030/api/v1/book-ambulance",
+        "https://medialert-ai-3.onrender.com/api/v1/book-ambulance",
         {
           address,
           phone,
@@ -67,7 +67,7 @@ const PatientDashboard = () => {
   const fetchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3030/api/v1/appointments/getAppointmentDetails/${user._id}`
+        `https://medialert-ai-3.onrender.com/api/v1/appointments/getAppointmentDetails/${user._id}`
       );
       setUserDetail(response.data);
       console.log(response.data);
@@ -90,7 +90,7 @@ const PatientDashboard = () => {
       // const emailId = email;
       console.log(emailId);
       const response = await axios.patch(
-        `http://localhost:3030/api/v1/appointments/rescheduleAppointment/${emailId}`,
+        `https://medialert-ai-3.onrender.com/api/v1/appointments/rescheduleAppointment/${emailId}`,
         { appointment_date: date }
       );
       console.log(response.data);
@@ -109,7 +109,7 @@ const PatientDashboard = () => {
   const handleDelete = (emailId) => async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3030/api/v1/appointments/delete-appointment/${emailId}`
+        `https://medialert-ai-3.onrender.com/api/v1/appointments/delete-appointment/${emailId}`
       );
       console.log(response.data);
       setChange(change + 1);
