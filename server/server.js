@@ -59,6 +59,13 @@ app.use(
     credentials: true,
   })
 );
+app.options("*", cors({
+  origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+  credentials: true,
+}));
+console.log("Allowed Origins:", process.env.FRONTEND_URL, process.env.DASHBOARD_URL);
+
+
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
@@ -88,35 +95,6 @@ app.use("/api/v1/chatbot", chatbotRoutes);
 app.post('/api/v1/book-ambulance', async (req, res) => {
   try {
     const { address, phone, user } = req.body;
-
-
-        // Save to DB if needed (optional)
-        // await Message.create({ firstName, lastName, email, phone, message });
-    
-        // const transporter = nodemailer.createTransport({
-        //   service: "gmail",
-        //   auth: {
-        //     user: "medialert.service@gmail.com",
-        //     pass: "flsj nkvl ksdu lklo",
-        //   },
-        // });
-    
-        // const mailOptions = {
-        //   from: "medialert.service@gmail.com", // ✅ Fix this line!
-        //   to: "sandip.23754@knit.ac.in",   // You receive the message
-        //   subject: `New Message from ambulance booking`,
-        //   html: `
-        //     <h3>Contact Details</h3>
-        //     <p><strong>Address:</strong> ${address}</p>
-        //     <p><strong>User:</strong> ${user.name}</p>
-        //     <p><strong>Phone:</strong> ${phone}</p>
-        //   `,
-        // };
-    
-        // console.log("EMAIL_USER:", process.env.EMAIL_USER);
-        // console.log("EMAIL_PASS:", process.env.EMAIL_PASS); // Should be 16
-    
-        // await transporter.sendMail(mailOptions);
 
     if (!address || !phone || !user) {
       return res.status(400).json({ error: 'Address, phone number and user are required' });
