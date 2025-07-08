@@ -22,7 +22,7 @@ const AddNewAdmin = () => {
     try {
       await axios
         .post(
-          "http://localhost:3030/api/v1/user/create-new-admin",
+          "https://medialert-ai-3.onrender.com/api/v1/user/create-new-admin",
           {
             firstName,
             lastName,

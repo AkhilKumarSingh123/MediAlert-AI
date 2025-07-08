@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3030/api/v1/user/single-admin",
+          "https://medialert-ai-3.onrender.com/api/v1/user/single-admin",
           { withCredentials: true }
         );
         setIsAuthenticated(true);

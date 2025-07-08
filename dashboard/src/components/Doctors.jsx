@@ -15,7 +15,7 @@ const Doctors = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3030/api/v1/user//get-all-doctor",
+          "https://medialert-ai-3.onrender.com/api/v1/user//get-all-doctor",
           { withCredentials: true }
         );
         setDoctors(data.doctor);
@@ -33,7 +33,7 @@ const Doctors = () => {
   const handleDelete = async (doctorId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3030/api/v1/user/delete/doctor/${doctorId}`,
+        `https://medialert-ai-3.onrender.com/api/v1/user/delete/doctor/${doctorId}`,
         { withCredentials: true }
       );
       setDoctors((prevDoctors) =>

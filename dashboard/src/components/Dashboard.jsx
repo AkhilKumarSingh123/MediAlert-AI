@@ -15,7 +15,7 @@ const Dashboard = () => {
     const fatchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3030/api/v1/appointments/get-all-appointment",
+          "https://medialert-ai-3.onrender.com/api/v1/appointments/get-all-appointment",
           { withCredentials: true }
         );
         setAppointments(data.appointments);
@@ -31,7 +31,7 @@ const Dashboard = () => {
   const handleStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:3030/api/v1/appointments/update-status-appointment/${appointmentId}`,
+        `https://medialert-ai-3.onrender.com/api/v1/appointments/update-status-appointment/${appointmentId}`,
         { status },
         { withCredentials: true }
       );
@@ -52,7 +52,7 @@ const Dashboard = () => {
   const handleDelete = async (appointmentId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3030/api/v1/appointments/delete-appointment/${appointmentId}`,
+        `https://medialert-ai-3.onrender.com/api/v1/appointments/delete-appointment/${appointmentId}`,
         { withCredentials: true }
       );
       setAppointments((app) => {

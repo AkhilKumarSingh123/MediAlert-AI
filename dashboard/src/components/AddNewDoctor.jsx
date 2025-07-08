@@ -69,7 +69,7 @@ const AddNewDoctor = () => {
       formData.append("docImage", docImage);
 
       const { data } = await axios.post(
-        "http://localhost:3030/api/v1/user/create-new-doctor",
+        "https://medialert-ai-3.onrender.com/api/v1/user/create-new-doctor",
         formData,
         {
           withCredentials: true,

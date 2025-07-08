@@ -56,7 +56,7 @@ const Sidebar = () => {
   const handleLogOut = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3030/api/v1/user/logout-admin",
+        "https://medialert-ai-3.onrender.com/api/v1/user/logout-admin",
         { withCredentials: true }
       );
       toast.success(data.message);

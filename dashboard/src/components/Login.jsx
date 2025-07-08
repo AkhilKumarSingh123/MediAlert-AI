@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3030/api/v1/user/login-user",
+        "https://medialert-ai-3.onrender.com/api/v1/user/login-user",
         { email, password, role: "Admin" },
         {
           withCredentials: true,

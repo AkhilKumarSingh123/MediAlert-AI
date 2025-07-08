@@ -13,7 +13,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3030/api/v1/message/get-all-message",
+          "https://medialert-ai-3.onrender.com/api/v1/message/get-all-message",
           { withCredentials: true }
         );
         setMessages(data.message);
@@ -27,7 +27,7 @@ const Messages = () => {
   const handleDelete = async (messageId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3030/api/v1/message/message-delete/${messageId}`,
+        `https://medialert-ai-3.onrender.com/api/v1/message/message-delete/${messageId}`,
         { withCredentials: true }
       );
       setMessages((prevMessages) =>
