@@ -1,4 +1,6 @@
-import myPhoto from "../assets/img/hero-carousel/hero-carousel-1.jpg"
+import myPhoto1 from "../assets/img/hero-carousel/hero-carousel-1.jpg";
+import myPhoto2 from "../assets/img/hero-carousel/hero-carousel-2.jpg";
+import myPhoto3 from "../assets/img/hero-carousel/hero-carousel-3.jpg";
 
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,7 +19,7 @@ const Hero = () => {
           <div className="carousel-item active h-full relative">
             <img
               // src="./src/assets/img/hero-carousel/hero-carousel-1.jpg"
-              src={myPhoto}
+              src={myPhoto1}
               className="w-full h-full object-cover"
               alt="Slide 1"
             />
@@ -42,7 +44,8 @@ const Hero = () => {
           {/* Item 2 */}
           <div className="carousel-item h-full relative">
             <img
-              src="./src/assets/img/hero-carousel/hero-carousel-2.jpg"
+              // src="./src/assets/img/hero-carousel/hero-carousel-2.jpg"
+              src={myPhoto2}
               className="w-full h-full object-cover"
               alt="Slide 2"
             />
@@ -67,7 +70,8 @@ const Hero = () => {
           {/* Item 3 */}
           <div className="carousel-item h-full relative">
             <img
-              src="./src/assets/img/hero-carousel/hero-carousel-3.jpg"
+              // src="./src/assets/img/hero-carousel/hero-carousel-3.jpg"
+              src={myPhoto3}
               className="w-full h-full object-cover"
               alt="Slide 3"
             />
