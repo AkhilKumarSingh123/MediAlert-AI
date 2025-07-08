@@ -226,7 +226,7 @@ export const getAllPatientController = errorHandleMiddleware(
 );
 
 // get single patient
-export const getSinglePtientController = errorHandleMiddleware(
+export const getSinglePatientController = errorHandleMiddleware(
   async (req, res, next) => {
     const user = req.user;
     res.status(200).send({
