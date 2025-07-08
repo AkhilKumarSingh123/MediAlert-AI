@@ -1,4 +1,4 @@
-
+import myPhoto from "../assets/img/hero-carousel/hero-carousel-1.jpg"
 
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,7 +16,8 @@ const Hero = () => {
           {/* Item 1 */}
           <div className="carousel-item active h-full relative">
             <img
-              src="./src/assets/img/hero-carousel/hero-carousel-1.jpg"
+              // src="./src/assets/img/hero-carousel/hero-carousel-1.jpg"
+              src={myPhoto}
               className="w-full h-full object-cover"
               alt="Slide 1"
             />
