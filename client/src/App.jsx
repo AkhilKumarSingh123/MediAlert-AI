@@ -24,25 +24,6 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Context } from "./main";
 const App = () => {
-  // const { isAuth, setIsAuth, setUser } = useContext(Context);
-
-  // // get single patinent
-  // useEffect(() => {
-  //   const fatchUser = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "http://localhost:3030/api/v1/user/single-patient",
-  //         { withCredentials: true }
-  //       );
-  //       setIsAuth(true);
-  //       setUser(response.data.user);
-  //     } catch (error) {
-  //       setIsAuth(false);
-  //       setUser({});
-  //     }
-  //   };
-  //   fatchUser();
-  // }, [isAuth]);
 
   const { setIsAuth, setUser } = useContext(Context);
 
