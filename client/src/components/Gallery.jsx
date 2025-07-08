@@ -7,17 +7,32 @@ import React, { useEffect } from "react";
 import GLightbox from "glightbox";
 import "glightbox/dist/css/glightbox.css";
 
-const images = [
-  "gallery-1.jpg",
-  "gallery-2.jpg",
-  "gallery-3.jpg",
-  "gallery-4.jpg",
-  "gallery-5.jpg",
-  "gallery-6.jpg",
-  "gallery-7.jpg",
-  "gallery-8.jpg",
-  "gallery-4.jpg", // duplicate
-];
+// const images = [
+//   "gallery-1.jpg",
+//   "gallery-2.jpg",
+//   "gallery-3.jpg",
+//   "gallery-4.jpg",
+//   "gallery-5.jpg",
+//   "gallery-6.jpg",
+//   "gallery-7.jpg",
+//   "gallery-8.jpg",
+//   "gallery-4.jpg", // duplicate
+// ];
+
+import img1 from "../assets/img/gallery/gallery-1.jpg";
+import img2 from "../assets/img/gallery/gallery-2.jpg";
+import img3 from "../assets/img/gallery/gallery-3.jpg";
+import img4 from "../assets/img/gallery/gallery-4.jpg";
+import img5 from "../assets/img/gallery/gallery-5.jpg";
+import img6 from "../assets/img/gallery/gallery-6.jpg";
+import img7 from "../assets/img/gallery/gallery-7.jpg";
+import img8 from "../assets/img/gallery/gallery-8.jpg";
+
+// Remove duplicate if needed
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+
+// import photo from `../assets/img/gallery/${img}`
+
 
 const Gallery = () => {
   useEffect(() => {
@@ -40,12 +55,14 @@ const Gallery = () => {
           {images.map((img, index) => (
             <div key={index} className="px-2"> {/* Add padding around each image */}
               <a
-                href={`./src/assets/img/gallery/${img}`}
+                // href={`./src/assets/img/gallery/${img}`}
+                href = {img}
                 className="glightbox"
                 data-gallery="images-gallery"
               >
                 <img
-                  src={`./src/assets/img/gallery/${img}`}
+                  // src={`./src/assets/img/gallery/${img}`}
+                  src = {img}
                   alt={`Gallery ${index + 1}`}
                   className="w-full h-[160px] object-cover rounded-xl transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg"
                 />

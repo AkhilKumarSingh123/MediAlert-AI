@@ -1,4 +1,4 @@
-
+import myPhoto1 from "../assets/img/features.jpg";
 
 import React from "react";
 import {
@@ -16,7 +16,8 @@ const FeaturesSection = () => {
           {/* Feature Image */}
           <div className="lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
             <img
-              src="./src/assets/img/features.jpg"
+              // src="./src/assets/img/features.jpg"
+              src = {myPhoto1}
               alt="Features"
               className="w-full rounded-lg shadow-md"
             />
