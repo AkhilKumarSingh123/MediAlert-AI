@@ -6,34 +6,45 @@ import 'aos/dist/aos.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+import img1 from "../assets/img/testimonials/testimonials-1.jpg"
+import img2 from "../assets/img/testimonials/testimonials-2.jpg"
+import img3 from "../assets/img/testimonials/testimonials-3.jpg"
+import img4 from "../assets/img/testimonials/testimonials-4.jpg"
+import img5 from "../assets/img/testimonials/testimonials-5.jpg"
+
 const testimonials = [
   {
     quote: 'MedicalAlert AI: Smart, Fast, and Reliable Emergency Assistance.',
-    img: './src/assets/img/testimonials/testimonials-1.jpg',
+    // img: './src/assets/img/testimonials/testimonials-1.jpg',
+    img : {img1},
     name: 'Liam',
     role: 'CEO & Founder',
   },
   {
     quote: 'MedicalAlert AI: Always there when I needed it the most.',
-    img: './src/assets/img/testimonials/testimonials-2.jpg',
+    // img: './src/assets/img/testimonials/testimonials-2.jpg',
+    img : {img2},
     name: 'Sofia',
     role: 'Designer',
   },
   {
     quote: 'The response time was incredible. Highly recommended.',
-    img: './src/assets/img/testimonials/testimonials-3.jpg',
+    // img: './src/assets/img/testimonials/testimonials-3.jpg',
+    img : {img3},
     name: 'Aisha',
     role: 'Store Owner',
   },
   {
     quote: 'Helpful and smart. This is the future of emergency care.',
-    img: './src/assets/img/testimonials/testimonials-4.jpg',
+    // img: './src/assets/img/testimonials/testimonials-4.jpg',
+    img : {img4},
     name: 'Mateo',
     role: 'Freelancer',
   },
   {
     quote: 'I trust MedicalAlert AI with my family’s safety.',
-    img: './src/assets/img/testimonials/testimonials-5.jpg',
+    // img: './src/assets/img/testimonials/testimonials-5.jpg',
+    img : {img5},
     name: 'Hiroshi',
     role: 'Entrepreneur',
   },
