@@ -41,39 +41,52 @@ import "react-multi-carousel/lib/styles.css";
 //   },
 // ];
 
+    
+import img1 from "../assets/img/departments-1.jpg"
+import img2 from "../assets/img/departments-2.jpg"
+import img3 from "../assets/img/departments-3.jpg"
+import img4 from "../assets/img/departments-4.jpg"
+import img5 from "../assets/img/departments-5.jpg"
+
+
 const departments = [
   {
     id: 'cardiology',
     title: 'Cardiology',
-    image: './src/assets/img/departments-1.jpg',
+    // image: './src/assets/img/departments-1.jpg',
+    image : img1,
     italic: '**_Cardiology focuses on early detection, smart monitoring, and emergency response for better heart health outcomes._**',
     desc: 'This department specializes in diagnosing and treating heart and blood vessel conditions including heart attacks, hypertension, arrhythmias, and coronary artery disease. AI-driven alerts help detect early warning signs for timely interventions.',
   },
   {
     id: 'neurology',
     title: 'Neurology',
-    image: './src/assets/img/departments-2.jpg',
+    // image: './src/assets/img/departments-2.jpg',
+     image : img2,
     italic: '**_Modern neurology integrates AI for predictive analysis and critical neurological event detection._**',
     desc: 'Handles brain, spinal cord, and nervous system disorders such as strokes, seizures, Alzheimer’s, Parkinson’s, and multiple sclerosis. Our platform supports AI-based symptom tracking, memory analysis, and urgent neuro alerts.',
   },
   {
     id: 'hepatology',
     title: 'Hepatology',
-    image: './src/assets/img/departments-3.jpg',
+    // image: './src/assets/img/departments-3.jpg',
+     image : img3,
     italic: '**_Smart monitoring and early alerts for maintaining optimal liver and digestive health._**',
     desc: 'Focuses on liver, pancreas, gallbladder, and bile duct issues such as hepatitis, fatty liver, cirrhosis, and jaundice. AI assists in tracking liver health metrics, managing chronic conditions, and triggering alerts during acute episodes.',
   },
   {
     id: 'pediatrics',
     title: 'Pediatrics',
-    image: './src/assets/img/departments-4.jpg',
+    // image: './src/assets/img/departments-4.jpg',
+     image : img4,
     italic: '**_AI-enhanced pediatric care with real-time health insights and emergency notifications for children._**',
     desc: 'Caters to infants, children, and adolescents, handling everything from vaccinations to growth monitoring and infectious disease management. The platform ensures child safety through smart vitals analysis and instant emergency alerts.',
   },
   {
     id: 'ophthalmology',
     title: 'Ophthalmologists',
-    image: './src/assets/img/departments-5.jpg',
+    // image: './src/assets/img/departments-5.jpg',
+     image : img5,
     italic: '**_Real-time eye condition monitoring and vision preservation using AI-based tools._**',
     desc: 'Focuses on the diagnosis and treatment of eye-related disorders such as glaucoma, cataracts, retinal diseases, and vision impairment. Integrated tools assist in early detection, AI eye assessments, and remote follow-ups.',
   },
