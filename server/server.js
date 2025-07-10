@@ -67,6 +67,7 @@ const url = process.env.MONGO_URL;
 app.use(
   cors({
     origin: [
+      "http://localhost:5173", 
       "https://medialert-ai-frontend.onrender.com",
       "https://medialert-dashboard.onrender.com"
     ],
