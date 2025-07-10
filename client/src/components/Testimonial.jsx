@@ -81,23 +81,6 @@ const TestimonialSection = () => {
           className="mySwiper"
         >
           {testimonials.map((item, index) => (
-            // <SwiperSlide key={index}>
-            //   <div className="bg-white rounded-2xl shadow-lg p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
-            //     <p className="text-gray-600 italic mb-4 relative">
-            //       <i className="bi bi-quote quote-icon-left mr-2 text-2xl text-blue-500"></i>
-            //       <span>{item.quote}</span>
-            //       <i className="bi bi-quote quote-icon-right ml-2 text-2xl text-blue-500"></i>
-            //     </p>
-            //     <img
-            //       src={item.img}
-            //       alt={item.name}
-            //       className="w-20 h-20 rounded-full object-cover border-4 border-blue-300 mb-4"
-            //     />
-            //     <h3 className="text-xl font-semibold text-gray-800">{item.name}</h3>
-            //     <h4 className="text-sm text-gray-500">{item.role}</h4>
-            //   </div>
-            // </SwiperSlide>
-
 
             <SwiperSlide key={index}>
               <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
