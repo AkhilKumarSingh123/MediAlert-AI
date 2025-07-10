@@ -11,10 +11,11 @@ import Doctor from "../components/Doctor";
 import TestimonialSection from "../components/Testimonial.jsx"
 import Gallery from "../components/Gallery.jsx"
 import Subscript from "../components/Subscript";
-import FAQ from "../components/FreqAsk.jsx"
+// import FAQ from "../components/FreqAsk.jsx"
 
 import Department from "../components/Department";
 import MessageForm from "../components/MessageForm";
+import Footer from "../components/Footer";
 
 
 const Home = () => {
@@ -33,8 +34,9 @@ const Home = () => {
       <Doctor />
       <Gallery/>
       <Subscript />
-      <FAQ/>
+      {/* <FAQ/> */}
       <MessageForm />
+      {/* <Footer/> */}
     </div>
   );
 };

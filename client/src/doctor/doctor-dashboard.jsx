@@ -648,3 +648,205 @@ const DoctorDashboard = () => {
 };
 
 export default DoctorDashboard;
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import {
+//   LayoutDashboard,
+//   CalendarCheck,
+//   ClipboardList,
+//   Users,
+//   Clock,
+//   LogOut,
+//   Mail,
+//   Phone,
+//   MapPin,
+//   Medal,
+//   Star,
+//   FileText,
+//   Stethoscope,
+//   UserCircle,
+//   CalendarDays,
+// } from "lucide-react";
+
+// const DoctorDashboard = () => {
+//   const [activeTab, setActiveTab] = useState("dashboard");
+//   const [sidebarOpen, setSidebarOpen] = useState(false);
+//   const [appointments, setAppointments] = useState([]);
+//   const [dashboardStats, setDashboardStats] = useState({});
+//   const user = JSON.parse(localStorage.getItem("user"));
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       if (!user?._id) return;
+//       try {
+//         const apptRes = await axios.get(
+//           `https://medialert-ai-3.onrender.com/api/v1/appointments/getAppointmentsByDoctor/${user._id}`
+//         );
+//         setAppointments(apptRes.data.appointments || []);
+
+//         const statsRes = await axios.get(
+//           `https://medialert-ai-3.onrender.com/api/v1/user/dashboard/doctor/${user._id}`
+//         );
+//         setDashboardStats(statsRes.data);
+//       } catch (error) {
+//         console.error("Fetch error:", error);
+//       }
+//     };
+//     fetchData();
+//   }, [user?._id]);
+
+//   const Sidebar = () => (
+//     <div className="w-64 bg-indigo-800 text-white p-6 space-y-4 h-full">
+//       <div className="text-2xl font-bold border-b border-indigo-600 pb-4">
+//         Doctor Panel
+//       </div>
+//       {[
+//         ["dashboard", "Dashboard"],
+//         ["current", "Current Appointment"],
+//         ["upcoming", "Upcoming Appointment"],
+//         ["appointments", "Appointment History"],
+//         ["patients", "Patient Records"],
+//       ].map(([key, label]) => (
+//         <button
+//           key={key}
+//           onClick={() => {
+//             setActiveTab(key);
+//             setSidebarOpen(false);
+//           }}
+//           className="w-full text-left py-2 px-4 rounded hover:bg-indigo-600 transition"
+//         >
+//           {label}
+//         </button>
+//       ))}
+//       <a
+//         href="/"
+//         className="block mt-10 text-left py-2 px-4 rounded hover:bg-red-600 transition"
+//       >
+//         Logout
+//       </a>
+//     </div>
+//   );
+
+//   const renderMainContent = () => {
+//     switch (activeTab) {
+//       case "dashboard":
+//         return (
+//           <div className="p-6">
+//             <h1 className="text-2xl font-bold mb-4">
+//               Welcome, Dr. {user?.firstName}!
+//             </h1>
+//             <div className="bg-white shadow-lg rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+//               <div className="flex flex-col items-center">
+//                 <img
+//                   src={user?.docImage?.url || "https://via.placeholder.com/150"}
+//                   alt="Profile"
+//                   className="w-36 h-36 rounded-full border-4 border-blue-600 object-cover"
+//                 />
+//                 <h2 className="mt-4 text-xl font-semibold text-gray-800">
+//                   Dr. {user?.firstName} {user?.lastName}
+//                 </h2>
+//               </div>
+//               <div className="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+//                 <div className="flex items-center space-x-3">
+//                   <UserCircle className="text-blue-600" />
+//                   <p className="text-gray-700 font-medium">
+//                     Full Name: Dr. {user?.firstName} {user?.lastName}
+//                   </p>
+//                 </div>
+//                 <div className="flex items-center space-x-3">
+//                   <Mail className="text-blue-600" />
+//                   <p className="text-gray-700 font-medium">Email: {user?.email}</p>
+//                 </div>
+//                 <div className="flex items-center space-x-3">
+//                   <Phone className="text-blue-600" />
+//                   <p className="text-gray-700 font-medium">Phone: {user?.phone}</p>
+//                 </div>
+//                 <div className="flex items-center space-x-3">
+//                   <Stethoscope className="text-blue-600" />
+//                   <p className="text-gray-700 font-medium">
+//                     Department: {user?.doctorDepartment}
+//                   </p>
+//                 </div>
+//                 <div className="flex items-center space-x-3">
+//                   <MapPin className="text-blue-600" />
+//                   <p className="text-gray-700 font-medium">Location: Delhi, India</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         );
+
+//       case "appointments":
+//         return (
+//           <div className="p-6">
+//             <h2 className="text-xl font-semibold mb-4">Appointments History</h2>
+//             <div className="grid md:grid-cols-2 gap-4">
+//               {appointments.map((item, i) => (
+//                 <div key={i} className="bg-white p-4 rounded shadow">
+//                   <p>
+//                     <strong>Name:</strong> {item.firstName} {item.lastName}
+//                   </p>
+//                   <p>
+//                     <strong>Date:</strong> {new Date(item.appointment_date).toLocaleDateString()}
+//                   </p>
+//                   <p>
+//                     <strong>Status:</strong> {item.status}
+//                   </p>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         );
+
+//       default:
+//         return <div className="p-6">Select a tab.</div>;
+//     }
+//   };
+
+//   return (
+//     <div className="flex h-screen overflow-hidden">
+//       {sidebarOpen && (
+//         <div
+//           className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden"
+//           onClick={() => setSidebarOpen(false)}
+//         />
+//       )}
+//       <div
+//         className={`fixed top-0 left-0 z-40 h-full transform transition-transform duration-300 ease-in-out bg-indigo-800 text-white md:relative md:translate-x-0 w-64 ${
+//           sidebarOpen ? "translate-x-0" : "-translate-x-full"
+//         }`}
+//       >
+//         <Sidebar />
+//       </div>
+//       <div className="flex-1 flex flex-col overflow-y-auto">
+//         <header className="bg-white shadow px-6 py-4 flex items-center justify-between md:justify-start md:gap-6">
+//           <button
+//             className="text-indigo-800 text-2xl md:hidden"
+//             onClick={() => setSidebarOpen(!sidebarOpen)}
+//           >
+//             ☰
+//           </button>
+//           <h1 className="text-xl font-semibold">Doctor Dashboard</h1>
+//         </header>
+//         <main className="flex-1 bg-gray-50">{renderMainContent()}</main>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DoctorDashboard;
+
+
+
+
+
+

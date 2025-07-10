@@ -63,6 +63,7 @@ const TestimonialSection = () => {
       </div>
 
       <div className="container mx-auto px-4 mt-10" data-aos="fade-up" data-aos-delay="100">
+
         <Swiper
           modules={[Pagination, Autoplay]}
           loop={true}
@@ -80,22 +81,41 @@ const TestimonialSection = () => {
           className="mySwiper"
         >
           {testimonials.map((item, index) => (
+            // <SwiperSlide key={index}>
+            //   <div className="bg-white rounded-2xl shadow-lg p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
+            //     <p className="text-gray-600 italic mb-4 relative">
+            //       <i className="bi bi-quote quote-icon-left mr-2 text-2xl text-blue-500"></i>
+            //       <span>{item.quote}</span>
+            //       <i className="bi bi-quote quote-icon-right ml-2 text-2xl text-blue-500"></i>
+            //     </p>
+            //     <img
+            //       src={item.img}
+            //       alt={item.name}
+            //       className="w-20 h-20 rounded-full object-cover border-4 border-blue-300 mb-4"
+            //     />
+            //     <h3 className="text-xl font-semibold text-gray-800">{item.name}</h3>
+            //     <h4 className="text-sm text-gray-500">{item.role}</h4>
+            //   </div>
+            // </SwiperSlide>
+
+
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-2xl shadow-lg p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
-                <p className="text-gray-600 italic mb-4 relative">
-                  <i className="bi bi-quote quote-icon-left mr-2 text-2xl text-blue-500"></i>
+              <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
+                <p className="text-gray-600 italic mb-3 sm:mb-4 text-sm sm:text-base relative leading-snug">
+                  <i className="bi bi-quote quote-icon-left mr-1 sm:mr-2 text-xl sm:text-2xl text-blue-500"></i>
                   <span>{item.quote}</span>
-                  <i className="bi bi-quote quote-icon-right ml-2 text-2xl text-blue-500"></i>
+                  <i className="bi bi-quote quote-icon-right ml-1 sm:ml-2 text-xl sm:text-2xl text-blue-500"></i>
                 </p>
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="w-20 h-20 rounded-full object-cover border-4 border-blue-300 mb-4"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-blue-300 mb-3 sm:mb-4"
                 />
-                <h3 className="text-xl font-semibold text-gray-800">{item.name}</h3>
-                <h4 className="text-sm text-gray-500">{item.role}</h4>
+                <h3 className="text-base sm:text-xl font-semibold text-gray-800">{item.name}</h3>
+                <h4 className="text-xs sm:text-sm text-gray-500">{item.role}</h4>
               </div>
             </SwiperSlide>
+
           ))}
         </Swiper>
 
