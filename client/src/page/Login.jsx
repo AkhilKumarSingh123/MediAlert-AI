@@ -72,12 +72,7 @@ const Login = () => {
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
-  // const images = [
-  //   "../src/assets/img/AppointmentPhoto.jpg",
-  //   "../src/assets/img/DoctorsPhoto.jpg",
-  //   "../src/assets/img/NursePhoto.jpg",
-  //   "../src/assets/img/HeartPulsePhoto.jpg",
-  // ];
+
   const images = [img1, img2, img3, img4];
 
 

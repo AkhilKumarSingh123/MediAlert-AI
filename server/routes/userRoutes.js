@@ -81,11 +81,9 @@ router.get('/getAppointmentDetails/:userId',async (req,res)=>{
   
 })
 
-
 ////////////////////////////////////////
 
 router.get('/:patientId', getPatientDetailsController);
-
 
 
 // models/Appointment.js
@@ -130,15 +128,9 @@ router.get("/dashboard/doctor/:doctorId", async (req, res) => {
   }
 });
 
-
-
-
 // delete single doctor
 router.delete("/delete/doctor/:id", adminTokenAuth, deleteDoctorController);
 // delete single patient
 router.delete("/delete/patient/:id", adminTokenAuth, deletePatientController);
-
-
-
 
 export default router;

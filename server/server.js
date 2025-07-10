@@ -78,6 +78,7 @@ app.use(
 // Allow preflight (OPTIONS) requests
 app.options("*", cors({
   origin: [
+    "http://localhost:5173", 
     "https://medialert-ai-frontend.onrender.com",
     "https://medialert-dashboard.onrender.com"
   ],
