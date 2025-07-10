@@ -64,26 +64,28 @@ const Doctor = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4">
-      <h1 className="text-center text-4xl font-bold mb-8">All Doctors</h1>
+    <div className="max-w-3/4 mx-auto py-10 px-4 bg-gray-700">
+      <h1 className="text-center text-4xl text-white font-bold mb-8">All Doctors</h1>
 
       {isMobile ? (
         <div className="overflow-x-auto scrollbar-hide">
-          <div className="grid grid-rows-2 grid-flow-col auto-cols-max gap-4 min-w-max">
+          <div className="grid grid-rows-2 grid-flow-col auto-cols-max  gap-4 min-w-max">
             {doctors.map((item) => (
               <div
                 key={item._id}
-                className="w-[140px] h-[240px] bg-white shadow-md rounded-xl p-2 text-center flex flex-col items-center justify-start"
+                className="w-[140px] h-[240px] bg-gray-600 shadow-md rounded-xl p-2 text-center flex flex-col items-center justify-start"
               >
                 <img
                   src={item.docImage.url}
                   alt={`Doctor ${item._id}`}
                   className="w-[100px] h-[100px] object-cover rounded-xl mb-2"
                 />
-                <h3 className="text-sm font-semibold leading-tight">
+                <h3 className="text-sm font-semibold 
+                text-white
+                leading-tight">
                   {item.firstName} {item.lastName}
                 </h3>
-                <p className="text-xs text-gray-500">{item.doctorDepartment}</p>
+                <p className="text-xs text-green-400">{item.doctorDepartment}</p>
               </div>
             ))}
           </div>
@@ -92,16 +94,19 @@ const Doctor = () => {
         <Slider {...settings}>
           {doctors.map((item) => (
             <div key={item._id} className="px-3">
-              <div className="bg-white shadow-md rounded-xl overflow-hidden p-4 text-center h-[280px] flex flex-col items-center justify-start">
+              <div className="bg-gray-600 shadow-md rounded-xl overflow-hidden p-4 text-center h-[280px] flex flex-col 
+              items-center justify-start">
                 <img
                   src={item.docImage.url}
                   alt={`Doctor ${item._id}`}
-                  className="w-[120px] h-[120px] object-cover rounded-xl mb-3"
+                  className="w-[120px] h-[120px] object-cover 
+                  rounded-xl mb-3"
                 />
-                <h3 className="text-md font-semibold leading-tight">
+                <h3 className="text-md font-semibold 
+                text-white leading-tight">
                   {item.firstName} {item.lastName}
                 </h3>
-                <p className="text-sm text-gray-500">{item.doctorDepartment}</p>
+                <p className="text-sm text-green-400">{item.doctorDepartment}</p>
               </div>
             </div>
           ))}

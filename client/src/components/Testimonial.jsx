@@ -56,10 +56,10 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-16 bg-gray-100">
+    <section id="testimonials" className="py-16 bg-gray-800">
       <div className="container mx-auto px-4 text-center" data-aos="fade-up">
-        <h2 className="text-3xl font-semibold text-gray-800">Testimonials</h2>
-        <h1 className="text-3xl text-blue-600 font-bold mt-2">What Patients Say About Us</h1>
+        <h2 className="text-3xl font-semibold text-white">Testimonials</h2>
+        <h1 className="text-3xl text-green-400 font-bold mt-2">What Patients Say About Us</h1>
       </div>
 
       <div className="container mx-auto px-4 mt-10" data-aos="fade-up" data-aos-delay="100">
@@ -78,24 +78,24 @@ const TestimonialSection = () => {
             768: { slidesPerView: 2, spaceBetween: 30 },
             1200: { slidesPerView: 3, spaceBetween: 40 },
           }}
-          className="mySwiper"
+          className="mySwipe"
         >
           {testimonials.map((item, index) => (
 
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
-                <p className="text-gray-600 italic mb-3 sm:mb-4 text-sm sm:text-base relative leading-snug">
-                  <i className="bi bi-quote quote-icon-left mr-1 sm:mr-2 text-xl sm:text-2xl text-blue-500"></i>
+              <div className="bg-gray-700 rounded-2xl shadow-lg p-4 sm:p-6 text-center mx-2 h-full flex flex-col items-center justify-center">
+                <p className="text-white italic mb-3 sm:mb-4 text-sm sm:text-base relative leading-snug">
+                  <i className="bi bi-quote quote-icon-left mr-1 sm:mr-2 text-xl sm:text-2xl text-green-400"></i>
                   <span>{item.quote}</span>
-                  <i className="bi bi-quote quote-icon-right ml-1 sm:ml-2 text-xl sm:text-2xl text-blue-500"></i>
+                  <i className="bi bi-quote quote-icon-right ml-1 sm:ml-2 text-xl sm:text-2xl text-green-400"></i>
                 </p>
                 <img
                   src={item.img}
                   alt={item.name}
                   className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-blue-300 mb-3 sm:mb-4"
                 />
-                <h3 className="text-base sm:text-xl font-semibold text-gray-800">{item.name}</h3>
-                <h4 className="text-xs sm:text-sm text-gray-500">{item.role}</h4>
+                <h3 className="text-base sm:text-xl font-semibold text-white">{item.name}</h3>
+                <h4 className="text-xs sm:text-sm text-green-400">{item.role}</h4>
               </div>
             </SwiperSlide>
 

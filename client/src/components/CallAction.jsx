@@ -7,10 +7,10 @@ const CallToAction = () => {
   return (
     <section
       id="call-to-action"
-      className="py-8 sm:py-14 text-white"
-      style={{
-        background: "linear-gradient(135deg, #1fa3d4, #86c7e2, #206f91, #5b879f, #a4c1ca)",
-      }}
+      className="py-8 sm:py-14 text-white bg-gray-800"
+      // style={{
+      //   background: "linear-gradient(135deg, #1fa3d4, #86c7e2, #206f91, #5b879f, #a4c1ca)",
+      // }}
     >
       <div className="container mx-auto px-4">
         <div
@@ -30,7 +30,7 @@ const CallToAction = () => {
             </p>
             <a
               href="/login"
-              className="inline-block bg-white text-blue-800 font-semibold py-1.5 px-4 sm:px-6 text-xs sm:text-sm rounded-md hover:bg-blue-100 transition duration-300 shadow-md"
+              className="inline-block bg-green-400 text-blue-800 font-semibold py-1.5 px-4 sm:px-6 text-xs sm:text-sm rounded-md hover:bg-blue-500 hover:text-white transition duration-300 shadow-md"
             >
               Login
             </a>

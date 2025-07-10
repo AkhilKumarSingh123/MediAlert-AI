@@ -293,7 +293,7 @@ const Navbar = () => {
       {/* Main Nav */}
       <div className="flex justify-between items-center py-3 px-4 md:px-8">
         {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-white">
+        <Link to="/" className="text-xl font-bold text-green-400">
           MediAlert AI
         </Link>
 
@@ -354,9 +354,9 @@ const Navbar = () => {
         <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-white">
           Services
         </Link>
-        <Link to="/appointment" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-white">
+        {/* <Link to="/appointment" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-white">
           Appointment
-        </Link>
+        </Link> */}
         <Link to="/doctors" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-white">
           Doctors
         </Link>

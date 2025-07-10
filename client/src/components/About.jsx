@@ -90,13 +90,13 @@ import img1 from "../assets/img/Logo.jpg";
 
 const About = () => {
   return (
-    <section id="about" className="py-8 sm:py-16 bg-white">
+    <section id="about" className="py-8 sm:py-16 bg-gray-700">
       {/* Section Title */}
       <div className="container mx-auto text-center mb-6 sm:mb-12 px-4" data-aos="fade-up">
-        <h2 className="text-xl sm:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">
+        <h2 className="text-xl sm:text-4xl font-bold text-white mb-2 sm:mb-4">
           About Us
         </h2>
-        <p className="text-gray-600 text-xs sm:text-lg">
+        <p className="text-white text-xs sm:text-lg">
           AI-driven healthcare saves lives, enhances well-being, and ensures
           timely medical intervention—anytime, anywhere.
         </p>
@@ -128,16 +128,16 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <h3 className="text-sm sm:text-2xl font-semibold text-blue-700 mb-2 sm:mb-4">
+              <h3 className="text-sm sm:text-2xl font-semibold text-green-400 mb-2 sm:mb-4">
                 Stay Alert. Stay Healthy. Stay Ahead.
               </h3>
-              <p className="italic text-gray-700 text-xs sm:text-base mb-3 sm:mb-4">
+              <p className="italic text-white text-xs sm:text-base mb-3 sm:mb-4">
                 At MedicalAlert AI, we are revolutionizing healthcare with
                 AI-powered real-time monitoring, emergency alerts, and smart
                 health management.
               </p>
 
-              <ul className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 text-gray-700 text-xs sm:text-base">
+              <ul className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 text-white text-xs sm:text-base">
                 <li className="flex items-start">
                   <i className="bi bi-heart-pulse text-green-600 mr-2 mt-1 text-base sm:text-lg"></i>
                   <span>Instant warning for critical health conditions.</span>
@@ -155,7 +155,7 @@ const About = () => {
                 </li>
               </ul>
 
-              <p className="text-gray-700 text-xs sm:text-base leading-relaxed">
+              <p className="text-white text-xs sm:text-base leading-relaxed">
                 Using AI technology, smart scheduling, and remote health monitoring,
                 we empower individuals, caregivers, and medical professionals to stay
                 ahead of health risks. Whether it’s emergency alerts, chronic disease tracking,

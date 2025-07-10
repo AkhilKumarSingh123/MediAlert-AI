@@ -27,23 +27,23 @@ const cards = [
 
 const Card = ({ icon, title, desc, index }) => (
   <div
-    className="w-60 sm:w-72 bg-white/70 backdrop-blur border border-gray-200 hover:border-blue-500 hover:shadow-lg hover:scale-105 shadow-md p-3 sm:p-5 rounded-lg text-center hover:bg-blue-300 transition-all duration-300 ease-in-out mx-auto my-2"
+    className="w-60 sm:w-72 bg-gray-600 backdrop-blur border border-gray-200 hover:border-green-600 hover:shadow-lg hover:scale-105 shadow-md p-3 sm:p-5 rounded-lg text-center hover:bg-green-400 transition-all duration-300 ease-in-out mx-auto my-2"
     data-aos="fade-up"
     data-aos-delay={index * 100 + 100}
   >
     <div className="text-3xl sm:text-4xl text-pink-600 mb-2 sm:mb-3">
       <i className={icon}></i>
     </div>
-    <h4 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 text-gray-800 hover:text-blue-800 transition">
+    <h4 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 text-white hover:text-blue-800 transition">
       {title}
     </h4>
-    <p className="text-xs sm:text-sm text-gray-700">{desc}</p>
+    <p className="text-xs sm:text-sm text-white">{desc}</p>
   </div>
 );
 
 const FeaturedServices = () => {
   return (
-    <section id="featured-services" className="py-10 sm:py-16 bg-white flex items-center">
+    <section id="featured-services" className="py-10 sm:py-16 bg-gray-700 flex items-center">
       <div className="container mx-auto px-2 sm:px-4">
         {/* Mobile View: 2-row horizontal scroll */}
         <div className="sm:hidden">

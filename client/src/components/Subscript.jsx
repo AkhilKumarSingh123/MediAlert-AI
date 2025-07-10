@@ -50,11 +50,11 @@ const pricingPlans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-16 bg-gray-100">
+    <section id="pricing" className="py-16 bg-gray-700">
       {/* Section Title */}
       <div className="text-center mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-gray-800">Our Pricing Plans</h2>
-        <p className="text-gray-600 mt-2">
+        <h2 className="text-3xl font-bold text-white">Our Pricing Plans</h2>
+        <p className="text-white mt-2">
           Choose the plan that suits your health needs. All core features are absolutely free!
         </p>
       </div>
@@ -65,7 +65,7 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className="w-[200px] h-[200px] bg-white rounded-xl shadow-md p-4 flex flex-col justify-between"
+              className="w-[200px] h-[200px] bg-gray-600 rounded-xl shadow-md p-4 flex flex-col justify-between"
               data-aos="fade-up"
               data-aos-delay={index * 100 + 100}
             >
@@ -75,17 +75,17 @@ const Pricing = () => {
                     {plan.tag}
                   </span>
                 )}
-                <h3 className="text-sm font-bold text-gray-800 mb-1">{plan.title}</h3>
-                <h4 className="text-lg font-semibold text-blue-600 mb-2">
+                <h3 className="text-sm font-bold text-white mb-1">{plan.title}</h3>
+                <h4 className="text-lg font-semibold text-green-400 mb-2">
                   ₹{plan.price}
-                  <span className="text-xs text-gray-600 font-normal"> / month</span>
+                  <span className="text-xs text-white font-normal"> / month</span>
                 </h4>
-                <ul className="text-gray-700 space-y-1 text-xs">
+                <ul className="text-white space-y-1 text-xs">
                   {plan.features.slice(0, 2).map((feature, i) => (
                     <li key={i}>• {feature}</li>
                   ))}
                   {plan.features.length > 2 && (
-                    <li className="text-blue-500 text-[11px] italic mt-1">+ more features</li>
+                    <li className="text-green-400 text-[11px] italic mt-1">+ more features</li>
                   )}
                 </ul>
               </div>
@@ -101,7 +101,7 @@ const Pricing = () => {
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300"
+                className="bg-gray-600 rounded-xl shadow-md p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 100 + 100}
               >
@@ -111,12 +111,12 @@ const Pricing = () => {
                       {plan.tag}
                     </span>
                   )}
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{plan.title}</h3>
-                  <h4 className="text-2xl font-semibold text-blue-600 mb-4">
+                  <h3 className="text-lg font-bold text-white mb-2">{plan.title}</h3>
+                  <h4 className="text-2xl font-semibold text-green-400 mb-4">
                     ₹{plan.price}
-                    <span className="text-sm text-gray-600 font-normal"> / month</span>
+                    <span className="text-sm text-white font-normal"> / month</span>
                   </h4>
-                  <ul className="text-gray-700 space-y-1 text-sm">
+                  <ul className="text-white space-y-1 text-sm">
                     {plan.features.map((feature, i) => (
                       <li key={i}>• {feature}</li>
                     ))}

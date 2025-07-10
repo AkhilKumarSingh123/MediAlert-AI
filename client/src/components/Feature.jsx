@@ -133,7 +133,7 @@ import myPhoto1 from "../assets/img/features.jpg";
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-4 sm:py-10 bg-gray-50">
+    <section id="features" className="py-4 sm:py-10 bg-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-4 sm:gap-10">
           {/* Feature Image */}
@@ -155,10 +155,10 @@ const FeaturesSection = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <h3 className="text-lg sm:text-3xl font-bold text-gray-800 leading-snug">
+            <h3 className="text-lg sm:text-3xl font-bold text-white leading-snug">
               Transforming Smart Healthcare Through AI
             </h3>
-            <p className="text-xs sm:text-base text-gray-600 leading-relaxed">
+            <p className="text-xs sm:text-base text-white leading-relaxed">
               MediAlert AI offers real-time diagnostics, emergency alerts, and AI-powered consultations
               to improve patient care and save lives—anytime, anywhere.
             </p>
@@ -171,7 +171,7 @@ const FeaturesSection = () => {
                 desc: "Enter your symptoms and receive AI-powered predictions instantly.",
               },
               {
-                icon: <FaBriefcaseMedical className="text-green-600 text-lg sm:text-2xl flex-shrink-0" />,
+                icon: <FaBriefcaseMedical className="text-green-400 text-lg sm:text-2xl flex-shrink-0" />,
                 title: "Emergency Alert System",
                 desc: "Detects emergencies and alerts hospitals—no wearables required.",
               },
@@ -194,10 +194,10 @@ const FeaturesSection = () => {
               >
                 {item.icon}
                 <div>
-                  <h4 className="text-sm sm:text-lg font-semibold text-gray-800">
+                  <h4 className="text-sm sm:text-lg font-semibold text-green-400">
                     {item.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-600">
+                  <p className="text-xs sm:text-sm text-white">
                     {item.desc}
                   </p>
                 </div>

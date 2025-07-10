@@ -54,15 +54,15 @@ const Department = () => {
   const [activeTab, setActiveTab] = useState("cardiology");
 
   return (
-    <section id="departments" className="py-10 sm:py-16 bg-gray-50">
+    <section id="departments" className="py-10 sm:py-16 bg-gray-700">
       <div
         className="max-w-6xl mx-auto px-4 sm:px-8 text-center mb-8 sm:mb-12"
         data-aos="fade-up"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-4">
           Departments
         </h2>
-        <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+        <p className="text-white text-sm sm:text-base max-w-2xl mx-auto">
           A hospital or medical alert system typically supports various departments, each specializing in a specific area.
         </p>
       </div>
@@ -80,8 +80,8 @@ const Department = () => {
                 onClick={() => setActiveTab(dept.id)}
                 className={`w-full px-3 py-2 rounded-md text-sm sm:text-base font-medium transition ${
                   activeTab === dept.id
-                    ? "bg-blue-600 text-white"
-                    : "bg-white text-gray-800 shadow"
+                    ? "bg-green-400 text-white"
+                    : "bg-gray-600 text-white shadow"
                 }`}
               >
                 {dept.title}
@@ -93,21 +93,22 @@ const Department = () => {
         {/* Department Content */}
  
 
-        <div className="w-full md:w-3/4 bg-white p-3 sm:p-6 rounded-lg shadow">
+        <div className="w-full md:w-3/4 bg-white sm:p-0 rounded-lg shadow">
           {departments
             .filter((dept) => dept.id === activeTab)
             .map((dept) => (
               <div
                 key={dept.id}
-                className="flex flex-col-reverse md:flex-row gap-3 sm:gap-6"
+                className="flex flex-col-reverse md:flex-row gap-3 sm:gap-6 bg-gray-600 "
               >
                 {/* Text Content */}
-                <div className="w-full md:w-2/3 text-xs sm:text-base leading-tight">
-                  <h3 className="text-base sm:text-2xl font-semibold mb-1 sm:mb-2">
+                <div className="w-full md:w-2/3 text-xs sm:text-base
+                leading-tight bg-gray-600">
+                  <h3 className="text-white sm:text-2xl font-semibold mb-1 sm:mb-2">
                     {dept.title}
                   </h3>
-                  <p className="italic text-gray-500 mb-1 sm:mb-2">{dept.italic}</p>
-                  <p className="text-gray-700">{dept.desc}</p>
+                  <p className="italic text-green-400 mb-1 sm:mb-2">{dept.italic}</p>
+                  <p className="text-white">{dept.desc}</p>
                 </div>
 
                 {/* Image */}

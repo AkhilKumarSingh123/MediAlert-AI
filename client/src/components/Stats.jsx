@@ -5,10 +5,10 @@ import { FaHospital } from 'react-icons/fa6';
 
 const StatItem = ({ icon: Icon, label }) => {
   return (
-    <div className="flex items-center gap-3 sm:gap-4 bg-white shadow-md p-4 sm:p-6 rounded-lg h-full w-full hover:shadow-lg transition-shadow duration-300">
-      <Icon className="text-blue-600 text-2xl sm:text-4xl flex-shrink-0" />
+    <div className="flex items-center gap-3 sm:gap-4 bg-gray-700 shadow-md p-4 sm:p-6 rounded-lg h-full w-full hover:shadow-lg transition-shadow duration-300">
+      <Icon className="text-green-400 text-2xl sm:text-4xl flex-shrink-0" />
       <div>
-        <p className="text-sm sm:text-lg font-semibold text-gray-800">
+        <p className="text-sm sm:text-lg font-semibold text-white">
           {label}
         </p>
       </div>
@@ -18,7 +18,7 @@ const StatItem = ({ icon: Icon, label }) => {
 
 const Stats = () => {
   return (
-    <section id="stats" className="py-10 sm:py-16 bg-gray-50">
+    <section id="stats" className="py-10 sm:py-16 bg-gray-800">
       <div
         className="max-w-5xl mx-auto px-4"
         data-aos="fade-up"

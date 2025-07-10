@@ -43,11 +43,11 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 bg-white">
+    <section id="services" className="py-16 bg-gray-800">
       {/* Section Heading */}
       <div className="max-w-6xl mx-auto px-6 text-center mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-4">Our Services</h2>
+        <p className="text-white max-w-2xl mx-auto">
           Explore how MediAlert AI leverages artificial intelligence and real-time data to deliver life-saving healthcare services, even in critical moments.
         </p>
       </div>
@@ -58,15 +58,15 @@ const ServicesSection = () => {
           {services.map((service, i) => (
             <div
               key={i}
-              className="bg-white shadow-md p-3 w-[200px] min-w-[200px] flex-shrink-0 rounded-lg flex flex-col items-center text-center hover:shadow-lg transition-shadow"
+              className="bg-gray-700 shadow-md p-3 w-[200px] min-w-[200px] flex-shrink-0 rounded-lg flex flex-col items-center text-center hover:shadow-lg transition-shadow"
               data-aos="fade-up"
               data-aos-delay={100 * (i + 1)}
             >
-              <div className="bg-blue-100 text-blue-600 text-2xl p-3 rounded-full mb-3">
+              <div className="bg-green-300 text-red-700 text-2xl p-3 rounded-full mb-3">
                 {service.icon}
               </div>
-              <h3 className="text-base font-semibold mb-1">{service.title}</h3>
-              <p className="text-gray-600 text-xs">{service.desc}</p>
+              <h3 className="text-white font-semibold mb-1">{service.title}</h3>
+              <p className="text-white text-xs">{service.desc}</p>
             </div>
           ))}
         </div>
@@ -77,15 +77,16 @@ const ServicesSection = () => {
         {services.map((service, i) => (
           <div
             key={i}
-            className="bg-white shadow-md p-4 w-full mx-auto rounded-lg flex flex-col items-center text-center hover:shadow-lg transition-shadow"
+            className="bg-gray-700 shadow-md p-4 w-full mx-auto rounded-lg flex flex-col items-center text-center hover:shadow-lg transition-shadow"
             data-aos="fade-up"
             data-aos-delay={100 * (i + 1)}
           >
-            <div className="bg-blue-100 text-blue-600 text-3xl p-4 rounded-full mb-4">
+            <div className="bg-green-400 text-red-700 text-3xl p-4 rounded-full mb-4">
               {service.icon}
             </div>
-            <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-600 text-sm">{service.desc}</p>
+            <h3 className="text-lg
+            text-white font-semibold mb-2">{service.title}</h3>
+            <p className="text-white text-sm">{service.desc}</p>
           </div>
         ))}
       </div>
