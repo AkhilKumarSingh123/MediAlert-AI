@@ -68,6 +68,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", 
+      "http://localhost:5174", 
       "https://medialert-ai-frontend.onrender.com",
       "https://medialert-dashboard.onrender.com"
     ],
@@ -80,6 +81,7 @@ app.use(
 app.options("*", cors({
   origin: [
     "http://localhost:5173", 
+    "http://localhost:5174", 
     "https://medialert-ai-frontend.onrender.com",
     "https://medialert-dashboard.onrender.com"
   ],
@@ -145,9 +147,18 @@ app.post('/api/v1/book-ambulance', async (req, res) => {
 app.use(errorMiddleware);
 
 
-app.listen(3030, () => {
-  console.log(`Server listen on PORT ${port} `);
+// app.listen(3030, () => {
+//   console.log(`Server listen on PORT ${port} `);
+// });
+
+
+app.listen(port || 3030, () => {
+  console.log(`✅ Server listening on PORT ${port || 3030}`);
 });
+
+
+
+
 
 // last export in error MIddleware
 // app.use(errorMiddleware);
