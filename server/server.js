@@ -142,6 +142,7 @@ app.post('/api/v1/book-ambulance', async (req, res) => {
 // app.use('/api/medical', medicalStoreRoutes);
 
 
+app.use(errorMiddleware);
 
 
 app.listen(3030, () => {
@@ -149,5 +150,5 @@ app.listen(3030, () => {
 });
 
 // last export in error MIddleware
-app.use(errorMiddleware);
+// app.use(errorMiddleware);
 export default app;
