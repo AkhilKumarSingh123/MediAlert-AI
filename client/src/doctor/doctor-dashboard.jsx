@@ -17,13 +17,20 @@ import {
   CalendarCheck,
   ClipboardList,
   Clock,
-  LogOut,
+    Menu,    // ✅ missing icon causing your error
+  X   , 
+  LogOut
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 
 const DoctorDashboard = () => {
+  
   const [activeTab, setActiveTab] = useState("dashboard");
   const [appointments, setAppointments] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(user.docImage);
 
@@ -48,30 +55,10 @@ const DoctorDashboard = () => {
     fetchAppointments();
   }, [doctor?._id]);
 
-  // Fetch Appointments
-  useEffect(() => {
-    const fetchAppointments = async () => {
-      if (!user?._id) return;
-      try {
-        const response = await axios.get(
-          `https://medialert-ai-3.onrender.com/v1/appointments/getAppointmentsByDoctor/${user._id}`
-        );
-        setAppointments(response.data.appointments || []);
-      } catch (error) {
-        console.error("Failed to fetch appointments:", error);
-      }
-    };
-
-    fetchAppointments();
-  }, [user?._id]);
-
   useEffect(() => {
     const fetchDashboardStats = async () => {
       if (!user?._id) return;
       try {
-        // const response = await axios.get(
-        //   `http://localhost:3030/api/v1/dashboard/doctor/${user._id}`
-        // );
         const response = await axios.get(
           `https://medialert-ai-3.onrender.com/api/v1/user/dashboard/doctor/${user._id}`
         );
@@ -87,6 +74,14 @@ const DoctorDashboard = () => {
   }, [user?._id]);
 
   // console
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    document.cookie = "doctorToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    localStorage.removeItem("doctorInfo");
+    navigate("/login");
+  };
+
 
   const handleViewPatient = async (patientId) => {
     console.log("Patient ID:", patientId); // Ensure you're passing a valid ID
@@ -102,20 +97,7 @@ const DoctorDashboard = () => {
     }
   };
 
-  // const getUpcomingAppointments = () => {
-  //   const now = new Date();
-  //   return appointments.filter(
-  //     (appt) => new Date(appt.appointment_date) >= now && appt.status === "Confirmed"
-  //   );
-  // };
-
-  // Upcoming appointments - after today
-  // const upcomingAppointments = appointments.filter(appointment => {
-  //   const today = new Date();
-  //   const appointmentDate = new Date(appointment.date);
-  //   return appointmentDate > today;
-  // });
-
+  
   const renderMainContent = () => {
     switch (activeTab) {
       case "dashboard":
@@ -522,53 +504,84 @@ const DoctorDashboard = () => {
     }
   };
 
+    const navItems = [
+    ["dashboard", LayoutDashboard, "Dashboard"],
+    ["current appointment", ClipboardList, "Current Appointment"],
+    ["patients", Users, "Patient Records"],
+    ["upcoming appointment", Clock, "Upcoming Appointment"],
+    ["appointments", CalendarCheck, "Appointments History"],
+  ];
+
   return (
     <div className="flex min-h-screen">
-      <aside className="w-64 h-screen bg-green-700 text-white hidden md:flex flex-col flex-shrink-0">
+      {/* ✅ Mobile Topbar: only for small screens */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow px-4 py-3 flex justify-between items-center md:hidden">
+        <button onClick={() => setSidebarOpen(true)}>
+          <Menu className="w-6 h-6 text-green-700" />
+        </button>
+        <h1 className="text-lg font-bold text-green-700">Doctor Dashboard</h1>
+      </div>
+
+     {/* ✅ Mobile Sidebar: only on small screens */}
+        {sidebarOpen && (
+          <div className="fixed inset-0 z-50 flex md:hidden">
+            <div className="bg-green-700 w-64 p-4 text-white flex flex-col space-y-4">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold">Doctor Panel</h2>
+                <button onClick={() => setSidebarOpen(false)}>
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* ✅ Navigation Items */}
+              {navItems.map(([key, Icon, label]) => (
+                <button
+                  key={key}
+                  onClick={() => {
+                    setActiveTab(key);
+                    setSidebarOpen(false);
+                  }}
+                  className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600"
+                >
+                  <Icon className="w-5 h-5" />
+                  {label}
+                </button>
+              ))}
+
+              {/* ✅ Logout Button: Just below nav items */}
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-3 py-2 px-4 rounded hover:bg-red-600"
+              >
+                <LogOut className="w-5 h-5" />
+                Logout
+              </button>
+            </div>
+
+            <div
+              className="flex-1 bg-black bg-opacity-40"
+              onClick={() => setSidebarOpen(false)}
+            />
+          </div>
+        )}
+
+      {/* ✅ Desktop Sidebar: only for md and above */}
+      <aside className="hidden md:flex w-64 h-screen bg-green-700 text-white flex-col flex-shrink-0">
         <div className="p-6 text-2xl font-bold border-b border-green-600">
           Doctor Panel
         </div>
 
         <nav className="flex-1 px-4 py-6 space-y-2 text-sm">
-          <button
-            onClick={() => setActiveTab("dashboard")}
-            className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600 transition-colors"
-          >
-            <LayoutDashboard className="w-5 h-5" />
-            Dashboard
-          </button>
-
-          <button
-            onClick={() => setActiveTab("current appointment")}
-            className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600 transition-colors"
-          >
-            <ClipboardList className="w-5 h-5" />
-            Current Appointment
-          </button>
-
-          <button
-            onClick={() => setActiveTab("patients")}
-            className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600 transition-colors"
-          >
-            <Users className="w-5 h-5" />
-            Patient Records
-          </button>
-
-          <button
-            onClick={() => setActiveTab("upcoming appointment")}
-            className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600 transition-colors"
-          >
-            <Clock className="w-5 h-5" />
-            Upcoming Appointment
-          </button>
-
-          <button
-            onClick={() => setActiveTab("appointments")}
-            className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600 transition-colors"
-          >
-            <CalendarCheck className="w-5 h-5" />
-            Appointments History
-          </button>
+          {navItems.map(([key, Icon, label]) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className="flex items-center gap-3 w-full text-left py-2 px-4 rounded hover:bg-green-600 transition-colors"
+            >
+              <Icon className="w-5 h-5" />
+              {label}
+            </button>
+          ))}
         </nav>
 
         <div className="px-4 pb-6 mt-auto">
@@ -582,9 +595,9 @@ const DoctorDashboard = () => {
         </div>
       </aside>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
+      {/* ✅ Main Content */}
+      <div className="flex-1 flex flex-col pt-[56px] md:pt-0">
+        <header className="hidden md:flex bg-white shadow px-6 py-4 justify-between items-center">
           <h1 className="text-2xl font-semibold text-green-700">
             Doctor Dashboard
           </h1>
@@ -593,7 +606,7 @@ const DoctorDashboard = () => {
               Welcome, Dr. {doctor?.firstName}
             </span>
             <img
-              src={ doctor?.docImage.url || "https://i.pravatar.cc/40?img=12"}
+              src={doctor?.docImage?.url || "https://i.pravatar.cc/40?img=12"}
               alt="Doctor Avatar"
               className="rounded-full w-8 h-8"
             />
@@ -603,46 +616,74 @@ const DoctorDashboard = () => {
         <main className="flex-1 bg-gray-100">{renderMainContent()}</main>
       </div>
 
-      {/* Patient Detail Modal */}
+      {/* ✅ Patient Modal */}
       {isModalOpen && selectedPatient && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-xl shadow-lg w-[90%] max-w-md">
-            <h2 className="text-xl font-bold mb-4 text-green-700">
-              Patient Details
-            </h2>
-            <p>
-              <strong>Name:</strong> {selectedPatient.firstName}{" "}
-              {selectedPatient.lastName}
-            </p>
-            <p>
-              <strong>Email:</strong> {selectedPatient.email}
-            </p>
-            <p>
-              <strong>Phone:</strong> {selectedPatient.phone}
-            </p>
-            <p>
-              <strong>DOB:</strong>{" "}
-              {new Date(selectedPatient.dob).toLocaleDateString()}
-            </p>
-            <p>
-              <strong>Gender:</strong> {selectedPatient.gender}
-            </p>
-            <p>
-              <strong>NIC:</strong> {selectedPatient.nic}
-            </p>
-            <p>
-              <strong>Address:</strong> {selectedPatient.address}
-            </p>
-            {/* Add more fields if available */}
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
+          <div className="relative bg-white p-6 rounded-2xl shadow-2xl w-full max-w-2xl">
+            {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="mt-4 px-4 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
+              className="absolute top-4 right-4 text-red-500 hover:text-red-700"
             >
-              Close
+              <X className="w-6 h-6" />
             </button>
+
+            {/* Title */}
+            <h2 className="text-2xl font-bold text-green-700 mb-6 text-center">
+              🩺 Patient Details
+            </h2>
+
+            {/* Detail Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-800">
+              <div>
+                <p className="font-semibold">👤 Name:</p>
+                <p>{selectedPatient.firstName} {selectedPatient.lastName}</p>
+              </div>
+
+              <div>
+                <p className="font-semibold">📧 Email:</p>
+                <p>{selectedPatient.email}</p>
+              </div>
+
+              <div>
+                <p className="font-semibold">📱 Phone:</p>
+                <p>{selectedPatient.phone}</p>
+              </div>
+
+              <div>
+                <p className="font-semibold">🎂 Date of Birth:</p>
+                <p>{new Date(selectedPatient.dob).toLocaleDateString()}</p>
+              </div>
+
+              <div>
+                <p className="font-semibold">⚧️ Gender:</p>
+                <p>{selectedPatient.gender}</p>
+              </div>
+
+              <div>
+                <p className="font-semibold">🆔 NIC:</p>
+                <p>{selectedPatient.nic}</p>
+              </div>
+
+              <div className="sm:col-span-2">
+                <p className="font-semibold">📍 Address:</p>
+                <p>{selectedPatient.address}</p>
+              </div>
+            </div>
+
+            {/* Close Button */}
+            <div className="mt-6 text-center">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="inline-block px-6 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-full transition duration-200"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
-      )}
+     )}
+
     </div>
   );
 };
@@ -657,193 +698,14 @@ export default DoctorDashboard;
 
 
 
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import {
-//   LayoutDashboard,
-//   CalendarCheck,
-//   ClipboardList,
-//   Users,
-//   Clock,
-//   LogOut,
-//   Mail,
-//   Phone,
-//   MapPin,
-//   Medal,
-//   Star,
-//   FileText,
-//   Stethoscope,
-//   UserCircle,
-//   CalendarDays,
-// } from "lucide-react";
 
-// const DoctorDashboard = () => {
-//   const [activeTab, setActiveTab] = useState("dashboard");
-//   const [sidebarOpen, setSidebarOpen] = useState(false);
-//   const [appointments, setAppointments] = useState([]);
-//   const [dashboardStats, setDashboardStats] = useState({});
-//   const user = JSON.parse(localStorage.getItem("user"));
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       if (!user?._id) return;
-//       try {
-//         const apptRes = await axios.get(
-//           `https://medialert-ai-3.onrender.com/api/v1/appointments/getAppointmentsByDoctor/${user._id}`
-//         );
-//         setAppointments(apptRes.data.appointments || []);
 
-//         const statsRes = await axios.get(
-//           `https://medialert-ai-3.onrender.com/api/v1/user/dashboard/doctor/${user._id}`
-//         );
-//         setDashboardStats(statsRes.data);
-//       } catch (error) {
-//         console.error("Fetch error:", error);
-//       }
-//     };
-//     fetchData();
-//   }, [user?._id]);
 
-//   const Sidebar = () => (
-//     <div className="w-64 bg-indigo-800 text-white p-6 space-y-4 h-full">
-//       <div className="text-2xl font-bold border-b border-indigo-600 pb-4">
-//         Doctor Panel
-//       </div>
-//       {[
-//         ["dashboard", "Dashboard"],
-//         ["current", "Current Appointment"],
-//         ["upcoming", "Upcoming Appointment"],
-//         ["appointments", "Appointment History"],
-//         ["patients", "Patient Records"],
-//       ].map(([key, label]) => (
-//         <button
-//           key={key}
-//           onClick={() => {
-//             setActiveTab(key);
-//             setSidebarOpen(false);
-//           }}
-//           className="w-full text-left py-2 px-4 rounded hover:bg-indigo-600 transition"
-//         >
-//           {label}
-//         </button>
-//       ))}
-//       <a
-//         href="/"
-//         className="block mt-10 text-left py-2 px-4 rounded hover:bg-red-600 transition"
-//       >
-//         Logout
-//       </a>
-//     </div>
-//   );
 
-//   const renderMainContent = () => {
-//     switch (activeTab) {
-//       case "dashboard":
-//         return (
-//           <div className="p-6">
-//             <h1 className="text-2xl font-bold mb-4">
-//               Welcome, Dr. {user?.firstName}!
-//             </h1>
-//             <div className="bg-white shadow-lg rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-//               <div className="flex flex-col items-center">
-//                 <img
-//                   src={user?.docImage?.url || "https://via.placeholder.com/150"}
-//                   alt="Profile"
-//                   className="w-36 h-36 rounded-full border-4 border-blue-600 object-cover"
-//                 />
-//                 <h2 className="mt-4 text-xl font-semibold text-gray-800">
-//                   Dr. {user?.firstName} {user?.lastName}
-//                 </h2>
-//               </div>
-//               <div className="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-//                 <div className="flex items-center space-x-3">
-//                   <UserCircle className="text-blue-600" />
-//                   <p className="text-gray-700 font-medium">
-//                     Full Name: Dr. {user?.firstName} {user?.lastName}
-//                   </p>
-//                 </div>
-//                 <div className="flex items-center space-x-3">
-//                   <Mail className="text-blue-600" />
-//                   <p className="text-gray-700 font-medium">Email: {user?.email}</p>
-//                 </div>
-//                 <div className="flex items-center space-x-3">
-//                   <Phone className="text-blue-600" />
-//                   <p className="text-gray-700 font-medium">Phone: {user?.phone}</p>
-//                 </div>
-//                 <div className="flex items-center space-x-3">
-//                   <Stethoscope className="text-blue-600" />
-//                   <p className="text-gray-700 font-medium">
-//                     Department: {user?.doctorDepartment}
-//                   </p>
-//                 </div>
-//                 <div className="flex items-center space-x-3">
-//                   <MapPin className="text-blue-600" />
-//                   <p className="text-gray-700 font-medium">Location: Delhi, India</p>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         );
 
-//       case "appointments":
-//         return (
-//           <div className="p-6">
-//             <h2 className="text-xl font-semibold mb-4">Appointments History</h2>
-//             <div className="grid md:grid-cols-2 gap-4">
-//               {appointments.map((item, i) => (
-//                 <div key={i} className="bg-white p-4 rounded shadow">
-//                   <p>
-//                     <strong>Name:</strong> {item.firstName} {item.lastName}
-//                   </p>
-//                   <p>
-//                     <strong>Date:</strong> {new Date(item.appointment_date).toLocaleDateString()}
-//                   </p>
-//                   <p>
-//                     <strong>Status:</strong> {item.status}
-//                   </p>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         );
 
-//       default:
-//         return <div className="p-6">Select a tab.</div>;
-//     }
-//   };
 
-//   return (
-//     <div className="flex h-screen overflow-hidden">
-//       {sidebarOpen && (
-//         <div
-//           className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden"
-//           onClick={() => setSidebarOpen(false)}
-//         />
-//       )}
-//       <div
-//         className={`fixed top-0 left-0 z-40 h-full transform transition-transform duration-300 ease-in-out bg-indigo-800 text-white md:relative md:translate-x-0 w-64 ${
-//           sidebarOpen ? "translate-x-0" : "-translate-x-full"
-//         }`}
-//       >
-//         <Sidebar />
-//       </div>
-//       <div className="flex-1 flex flex-col overflow-y-auto">
-//         <header className="bg-white shadow px-6 py-4 flex items-center justify-between md:justify-start md:gap-6">
-//           <button
-//             className="text-indigo-800 text-2xl md:hidden"
-//             onClick={() => setSidebarOpen(!sidebarOpen)}
-//           >
-//             ☰
-//           </button>
-//           <h1 className="text-xl font-semibold">Doctor Dashboard</h1>
-//         </header>
-//         <main className="flex-1 bg-gray-50">{renderMainContent()}</main>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DoctorDashboard;
 
 
 

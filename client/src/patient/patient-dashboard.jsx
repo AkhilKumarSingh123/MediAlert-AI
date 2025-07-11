@@ -472,11 +472,6 @@
 
 
 
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import AppointmentForm from "../components/AppointmentFrom.jsx";
 import axios from "axios";
@@ -613,7 +608,6 @@ const PatientDashboard = () => {
             <h1 className="text-2xl font-bold mb-4">
               Welcome, {user?.firstName}!
             </h1>
-            {/* Profile info */}
             <div className="bg-white shadow-lg rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex flex-col items-center">
                 <img
@@ -672,25 +666,13 @@ const PatientDashboard = () => {
               <form onSubmit={handleBookAmbulance} className="space-y-4">
                 <div>
                   <label className="block font-medium">Address</label>
-                  <textarea
-                    name="address"
-                    required
-                    className="w-full p-2 border rounded"
-                  />
+                  <textarea name="address" required className="w-full p-2 border rounded" />
                 </div>
                 <div>
                   <label className="block font-medium">Phone Number</label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    pattern="^\d{10}$"
-                    required
-                    className="w-full p-2 border rounded"
-                  />
+                  <input name="phone" type="tel" pattern="^\d{10}$" required className="w-full p-2 border rounded" />
                 </div>
-                <button className="bg-green-600 text-white px-4 py-2 rounded">
-                  Book Ambulance
-                </button>
+                <button className="bg-green-600 text-white px-4 py-2 rounded">Book Ambulance</button>
               </form>
             </AccordionItem>
           </div>
@@ -702,19 +684,10 @@ const PatientDashboard = () => {
             <div className="grid md:grid-cols-2 gap-4">
               {userDetail?.appointments?.map((item, i) => (
                 <div key={i} className="bg-white p-4 rounded shadow">
-                  <p>
-                    <strong>Name:</strong> {item.firstName}
-                  </p>
-                  <p>
-                    <strong>Date:</strong>{" "}
-                    {new Date(item.appointment_date).toLocaleDateString()}
-                  </p>
-                  <p>
-                    <strong>Department:</strong> {item.department}
-                  </p>
-                  <p>
-                    <strong>Status:</strong> {item.status}
-                  </p>
+                  <p><strong>Name:</strong> {item.firstName}</p>
+                  <p><strong>Date:</strong> {new Date(item.appointment_date).toLocaleDateString()}</p>
+                  <p><strong>Department:</strong> {item.department}</p>
+                  <p><strong>Status:</strong> {item.status}</p>
                 </div>
               ))}
             </div>
@@ -729,15 +702,8 @@ const PatientDashboard = () => {
                   <p><strong>Doctor:</strong> {item.doctor?.firstName}</p>
                   <p><strong>Current Date:</strong> {new Date(item.appointment_date).toLocaleDateString()}</p>
                   <form onSubmit={(e) => rescheduleAppointments(e, item.email)} className="mt-2">
-                    <input
-                      type="date"
-                      required
-                      onChange={(e) => setDate(e.target.value)}
-                      className="border px-2 py-1 mr-2"
-                    />
-                    <button className="bg-blue-600 text-white px-4 py-1 rounded">
-                      Reschedule
-                    </button>
+                    <input type="date" required onChange={(e) => setDate(e.target.value)} className="border px-2 py-1 mr-2" />
+                    <button className="bg-blue-600 text-white px-4 py-1 rounded">Reschedule</button>
                   </form>
                 </div>
               ))}
@@ -752,12 +718,7 @@ const PatientDashboard = () => {
                 <div key={i} className="p-4 bg-white rounded shadow mb-4">
                   <p><strong>Doctor:</strong> {item.doctor?.firstName}</p>
                   <p><strong>Date:</strong> {new Date(item.appointment_date).toLocaleDateString()}</p>
-                  <button
-                    onClick={handleDelete(item.email)}
-                    className="bg-red-600 text-white px-4 py-1 rounded mt-2"
-                  >
-                    Cancel
-                  </button>
+                  <button onClick={handleDelete(item.email)} className="bg-red-600 text-white px-4 py-1 rounded mt-2">Cancel</button>
                 </div>
               ))}
             </AccordionItem>
@@ -770,15 +731,10 @@ const PatientDashboard = () => {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Overlay for mobile */}
       {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-30 md:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 z-40 h-full transform transition-transform duration-300 ease-in-out bg-indigo-800 text-white md:relative md:translate-x-0 w-64 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -787,20 +743,20 @@ const PatientDashboard = () => {
         <Sidebar />
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-y-auto">
-        {/* Header */}
-        <header className="bg-white shadow px-6 py-4 flex items-center justify-between md:justify-start md:gap-6">
-          <button
-            className="text-indigo-800 text-2xl md:hidden"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            {sidebarOpen ? <X /> : <Menu />}
+        {/* Mobile Topbar */}
+        <div className="md:hidden flex justify-between items-center bg-white px-4 py-3 shadow sticky top-0 z-30">
+          <button onClick={() => setSidebarOpen(true)}>
+            <Menu className="w-6 h-6 text-indigo-800" />
           </button>
-          <h1 className="text-xl font-semibold">Patient Dashboard</h1>
+          <h1 className="text-lg font-bold text-indigo-800">Patient Dashboard</h1>
+        </div>
+
+        {/* Desktop Header */}
+        <header className="hidden md:flex bg-white shadow px-6 py-4 items-center gap-6">
+          <h1 className="text-2xl font-semibold text-indigo-800">Patient Dashboard</h1>
         </header>
 
-        {/* Main */}
         <main className="flex-1">{renderMainContent()}</main>
       </div>
     </div>
@@ -808,7 +764,6 @@ const PatientDashboard = () => {
 };
 
 export default PatientDashboard;
-
 
 
 
