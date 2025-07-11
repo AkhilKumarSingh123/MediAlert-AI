@@ -159,7 +159,7 @@ You are MediAlertBot, a health assistant AI. The user said: "${message}". Provid
     if (isDanger) {
       result.alertLevel = "high";
       result.alert = "DANGEROUS SYMPTOMS DETECTED. IMMEDIATE ACTION REQUIRED.";
-      result.redirect = "https://localhost:5174/login";
+      result.redirect = "https://medialert-dashboard.onrender.com/login";
     }
 
     res.json(result);

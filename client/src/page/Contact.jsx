@@ -34,11 +34,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact section bg-gray-50 py-8 sm:py-12">
+    <section id="contact" className="contact section bg-gray-800 py-8 sm:py-12">
       {/* Section Title */}
       <div className="container text-center mb-6 sm:mb-10" data-aos="fade-up">
-        <h2 className="text-2xl sm:text-3xl font-bold text-yellow-700">Contact</h2>
-        <p className="text-base sm:text-xl text-gray-600">Gorakhpur, UTTAR PRADESH</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-50">Contact</h2>
+        <p className="text-base sm:text-xl text-gray-50">Gorakhpur, UTTAR PRADESH</p>
       </div>
 
       {/* Google Map */}
@@ -57,22 +57,22 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-8">
           {/* Info Section */}
           <div className="lg:w-1/2 space-y-3 sm:space-y-6">
-            <div className="flex flex-col items-center text-center bg-white p-3 sm:p-6 rounded-lg shadow-md">
+            <div className="flex flex-col items-center text-center bg-gray-700 p-3 sm:p-6 rounded-lg shadow-md">
               <FaMapMarkerAlt className="text-xl sm:text-3xl text-blue-600 mb-1 sm:mb-2" />
-              <h3 className="text-sm sm:text-lg font-semibold text-gray-800">Address</h3>
-              <p className="text-xs sm:text-base text-gray-600">Gorakhpur, UTTAR PRADESH</p>
+              <h3 className="text-sm sm:text-lg font-semibold text-gray-50">Address</h3>
+              <p className="text-xs sm:text-base text-gray-50">Gorakhpur, UTTAR PRADESH</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <div className="flex flex-col items-center text-center bg-white p-3 sm:p-6 rounded-lg shadow-md w-full sm:w-1/2">
+              <div className="flex flex-col items-center text-center bg-gray-700 p-3 sm:p-6 rounded-lg shadow-md w-full sm:w-1/2">
                 <FaPhoneAlt className="text-xl sm:text-3xl text-green-600 mb-1 sm:mb-2" />
-                <h3 className="text-sm sm:text-lg font-semibold text-gray-800">Call Us</h3>
-                <p className="text-xs sm:text-base text-gray-600">9219739903</p>
+                <h3 className="text-sm sm:text-lg font-semibold text-gray-50">Call Us</h3>
+                <p className="text-xs sm:text-base text-gray-50">9219739903</p>
               </div>
-              <div className="flex flex-col items-center text-center bg-white p-3 sm:p-6 rounded-lg shadow-md w-full sm:w-1/2">
+              <div className="flex flex-col items-center text-center bg-gray-700 p-3 sm:p-6 rounded-lg shadow-md w-full sm:w-1/2">
                 <FaEnvelope className="text-xl sm:text-3xl text-red-600 mb-1 sm:mb-2" />
-                <h3 className="text-sm sm:text-lg font-semibold text-gray-800">Email Us</h3>
-                <p className="text-xs sm:text-base text-gray-600">Medicalalertai@gmail.com</p>
+                <h3 className="text-sm sm:text-lg font-semibold text-gray-50">Email Us</h3>
+                <p className="text-xs sm:text-base text-gray-50">Medicalalertai@gmail.com</p>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="firstName"
-                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-slate-200 text-sm"
+                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-gray-500 text-sm"
                 placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -92,7 +92,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="lastName"
-                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-slate-200 text-sm"
+                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-gray-500 text-sm"
                 placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
@@ -101,7 +101,7 @@ const Contact = () => {
               <input
                 type="email"
                 name="email"
-                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-slate-200 text-sm"
+                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-gray-500 text-sm"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -110,14 +110,14 @@ const Contact = () => {
               <input
                 type="phone"
                 name="phone"
-                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-slate-200 text-sm"
+                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-gray-500 text-sm"
                 placeholder="Phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
               />
               <textarea
-                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-slate-200 text-sm"
+                className="form-control w-full p-2 sm:p-3 rounded-lg border border-gray-300 bg-gray-500 text-sm"
                 name="message"
                 rows="4"
                 placeholder="Message"
@@ -128,7 +128,7 @@ const Contact = () => {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white text-sm sm:text-base py-2 sm:py-3 px-6 sm:px-10 rounded-lg hover:bg-blue-600"
+                  className="bg-green-400 text-white text-sm sm:text-base py-2 sm:py-3 px-6 sm:px-10 rounded-lg hover:bg-blue-600"
                 >
                   Send Message
                 </button>

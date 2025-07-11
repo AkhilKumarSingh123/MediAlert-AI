@@ -18,7 +18,7 @@ const MediChatbot = () => {
 
     try {
       const response = await fetch(
-        "https://medialert-ai-3.onrender.com/api/v1/chatbot/book-appointment",
+        "https://medialert-dashboard.onrender.com/api/v1/chatbot/book-appointment",
         {
           method: "POST",
           headers: {
@@ -61,7 +61,7 @@ const MediChatbot = () => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <div
-        className="text-3xl cursor-pointer bg-blue-600 text-white p-3 rounded-full shadow-lg"
+        className="text-3xl cursor-pointer bg-green-400 text-white p-3 rounded-full shadow-lg"
         onClick={toggleChat}
       >
         💬
@@ -69,7 +69,7 @@ const MediChatbot = () => {
 
       {isOpen && (
         <div className="w-80 bg-white shadow-lg rounded-lg mt-2">
-          <div className="flex justify-between items-center bg-blue-600 text-white px-4 py-2 rounded-t-lg">
+          <div className="flex justify-between items-center bg-green-400 text-white px-4 py-2 rounded-t-lg">
             <h4 className="font-semibold text-sm">
               Medi - Your Health Assistant
             </h4>
@@ -78,7 +78,7 @@ const MediChatbot = () => {
             </button>
           </div>
 
-          <div className="h-60 overflow-y-auto p-3 text-sm" id="medi-messages">
+          <div className="h-60 overflow-y-auto p-3 bg-gray-700 text-sm" id="medi-messages">
             {messages.map((msg, idx) => {
               const baseClass = "mb-2 p-2 rounded";
               let className = baseClass;
@@ -97,7 +97,8 @@ const MediChatbot = () => {
                   {msg.sender === "redirect" ? (
                     // <span dangerouslySetInnerHTML={{ __html: msg.text }} />
                     <a
-                      href="http://localhost:5174/login"
+                      // href="http://localhost:5174/login"
+                      href="https://medialert-ai-frontend.onrender.com/login"
                       target="_blank"
                       className="text-blue-500 underline"
                     >
@@ -115,18 +116,18 @@ const MediChatbot = () => {
             )}
           </div>
 
-          <div className="flex border-t p-2 gap-2">
+          <div className="flex border-t p-2 bg-gray-700 gap-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
               placeholder="Describe your symptoms..."
-              className="flex-1 border rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 border rounded bg-gray-300 px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
               onClick={sendMessage}
-              className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 text-sm"
+              className="bg-green-400 text-white px-4 py-1 rounded hover:bg-blue-700 text-sm"
             >
               Send
             </button>

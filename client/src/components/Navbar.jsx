@@ -324,7 +324,7 @@ const Navbar = () => {
           {isAuth ? (
             <button
               onClick={logOutHandle}
-              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+              className="bg-orange-400 text-white px-4 py-2 rounded hover:bg-yellow-600"
             >
               Logout
             </button>
