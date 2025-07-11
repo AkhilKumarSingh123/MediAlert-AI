@@ -49,21 +49,6 @@ const url = process.env.MONGO_URL;
 // module.exports = transporter;
 
 
-
-
-// all middleware is here
-// app.use(
-//   cors({
-//     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
-//     methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-//     credentials: true,
-//   })
-// );
-// app.options("*", cors({
-//   origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
-//   credentials: true,
-// }));
-// console.log("Allowed Origins:", process.env.FRONTEND_URL, process.env.DASHBOARD_URL);
 app.use(
   cors({
     origin: [
@@ -136,30 +121,17 @@ app.post('/api/v1/book-ambulance', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-// app listen here
-
-
 
 // Route registration
 // app.use('/api/medical', medicalStoreRoutes);
 
-
+// last export in error MIddleware
 app.use(errorMiddleware);
 
-
-// app.listen(3030, () => {
-//   console.log(`Server listen on PORT ${port} `);
-// });
-
-
+// app listen here
 app.listen(port || 3030, () => {
   console.log(`✅ Server listening on PORT ${port || 3030}`);
 });
 
 
-
-
-
-// last export in error MIddleware
-// app.use(errorMiddleware);
 export default app;
